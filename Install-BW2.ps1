@@ -13,7 +13,7 @@ Function Get-Folder($initialDirectory="$home\Downloads"){
 }
 $isoDir = Get-Folder
 Set-Location $isoDir
-$isoFile = Get-ChildItem | Where Name -like "*.iso"
+$isoFile = Get-ChildItem | Where-Object Name -like "*.iso"
 $isoPath = $isoDir + "\" + $isoFile
 $isoMount = Mount-DiskImage $isoPath
 $isoDriveLetter = (Get-Volume | Where-Object FileSystemLabel -like "*BW2*").DriveLetter
